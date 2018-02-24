@@ -1,0 +1,43 @@
+// This file contains the logic for the course of the game, which depends on Word.js and:
+
+// - Randomly selects a word and uses the Word constructor to store it
+// - Prompts the user for each guess and keeps track of the user's remaining guesses
+
+// to do:  enter code if user guesses the full word.
+
+const letterID = require("Word.js");
+var prompt = require('prompt');
+var guessesLeft = 10;
+
+console.log ("Guess a letter to solve the word:");
+
+this.game = function(){
+
+    // Array of words to be guessed
+    var wordsList = ["ballroom dance", "foxtrot", "breakdance", "tap dance", "jitterbug", "folk dance", "belly dance", 
+    "square dance", "flamenco", "ballet", "Mexican hat dance"];
+    // randomly select a word from the array of words to be guessed.
+    this.wordToGuess = wordsList[Math.floor(Math.random() * wordsList.length)];
+
+    // This function is run whenever the user guesses a letter..
+    this.gameProgress = function(solvingWord) {
+        for (var i=0; i<this.guessesLeft.length; i--){
+            // If the user has no guesses left, restart the game.
+            if (this.guessesLeft === 0) {
+                console.log ("You lose, try again")
+                this.restartGame();
+            }
+            
+        // Otherwise...
+        else {
+            console.log ("Guesses left: " + guessesLeft);
+        }
+        
+        }
+    };
+}
+
+this.restartGame = function() {
+    guessesLeft = 10;
+
+}
